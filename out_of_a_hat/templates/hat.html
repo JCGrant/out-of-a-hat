@@ -7,7 +7,7 @@
     <p>This is your hat! Is everything correct?</p>
     <p>If so, here is a link. Send this to each person who needs to take an item from the hat.</p>
     <form role="form">
-      <input type="text" class="form-control" value="{{ config.SERVER_NAME }}{{ url_for('take_item', hat_uuid=hat.uuid) }}"></input>
+      <input type="text" class="form-control" value="{{ config.URL }}{{ url_for('take_item', hat_uuid=hat.uuid) }}"></input>
     </form>
   </div>
   
