@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+  <div class="well">
+    <div class="page-header">
+      <h1>Out of a Hat</h1>
+    </div>
+    <p>This is your hat! Is everything correct?</p>
+    <p>If so, here is a link. Send this to each person who needs to take an item from the hat.</p>
+    <form role="form">
+      <input type="text" class="form-control" value="{{ config.SERVER_NAME }}{{ url_for('take_item', hat_uuid=hat.uuid) }}"></input>
+    </form>
+  </div>
+  
+  <h1>{{ hat.name }}</h1>
+  {% if hat.items.count() == 0 %}
+    <p>The hat is empty!</p>
+  {% endif %}
+  {% for item in hat.items %}
+    <div>
+      {{ item.name }}
+    </div>
+  {% endfor %}
+{% endblock %} 

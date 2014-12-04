@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, intitial-scale=1">
+    <title>Names out of a Hat</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+          <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            </button>
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endwith %}
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+
+        {% block body %}
+        {% endblock %}
+
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  </body>
+</html>
